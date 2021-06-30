@@ -1,0 +1,21 @@
+#!/bin/bash
+echo fyi, ca stands for "compiler aliases"
+echo ex: ca cpp [filename/path] e // adding e will run the compiled file
+echo functions available: cpp, .. more to come ..
+echo
+
+function cpp {
+    echo CMD: clang++ -pedantic-errors -Wall -Weffc++ -Wextra -Wsign-conversion $1.cpp -o $1.out
+    clang++ -pedantic-errors -Wall -Weffc++ -Wextra -Wsign-conversion $1.cpp -o $1.out
+    if [[ $2 = "e" ]];
+    then
+        echo ok, let´s run it
+        echo
+        ./$1.out
+    fi
+}
+
+if [[ $1 = 'cpp' ]];
+then
+    cpp $2 $3
+fi
