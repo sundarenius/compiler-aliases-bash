@@ -1,21 +1,44 @@
 #!/bin/bash
 echo fyi, ca stands for "compiler aliases"
 echo ex: ca cpp [filename/path] e // adding e will run the compiled file
-echo functions available: cpp, .. more to come ..
+echo functions available: cpp, java .. more to come ..
 echo
 
-function cpp {
+function __cpp__ {
     echo CMD: clang++ -pedantic-errors -Wall -Weffc++ -Wextra -Wsign-conversion $1.cpp -o $1.out
     clang++ -pedantic-errors -Wall -Weffc++ -Wextra -Wsign-conversion $1.cpp -o $1.out
     if [[ $2 = "e" ]];
     then
         echo ok, let´s run it
+        echo CMD: ./$1.out
         echo
         ./$1.out
     fi
 }
 
-if [[ $1 = 'cpp' ]];
-then
-    cpp $2 $3
-fi
+function __java__ {
+    if [[ $2 = "e" ]];
+    then
+        echo ok, let´s compile and run it
+        echo "CMD: javac $1.java && java $1"
+        echo
+        javac $1.java && java $1
+    else
+        echo let´s compile
+        echo CMD: "javac $1.java"
+        echo
+        javac $1.java
+    fi
+}
+
+function __START__ {
+    if [[ $1 = 'cpp' ]];
+    then
+        __cpp__ $2 $3;
+    elif [[ $1 = 'java' ]];
+    then
+        __java__ $2 $3;
+    fi
+}
+
+__START__ $1 $2 $3
