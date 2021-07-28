@@ -1,8 +1,14 @@
 #!/bin/bash
 
 function __cpp__ {
-    echo CMD: clang++ -std=c++17 -pedantic-errors -Wall -Weffc++ -Wextra -Wsign-conversion $1.cpp -o $1.out
-    clang++ -std=c++17 -pedantic-errors -Wall -Weffc++ -Wextra -Wsign-conversion $1.cpp -o $1.out
+  if [[ "$OSTYPE" == "linux-gnu"* ]];
+    then
+      echo CMD: clang++ -std=c++17 -pedantic-errors -Wall -Weffc++ -Wextra -Wsign-conversion $1.cpp -o $1.out
+      clang++ -std=c++17 -pedantic-errors -Wall -Weffc++ -Wextra -Wsign-conversion $1.cpp -o $1.out
+  elif [[ "$OSTYPE" == "darwin"* ]];
+    then
+      echo "use gcc or g++ or what is called here for linux, same params I think"
+  fi
     if [[ $2 = "e" ]];
     then
         echo CMD: ./$1.out
