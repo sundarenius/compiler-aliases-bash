@@ -3,11 +3,11 @@
 function __cpp__ {
   if [[ "$OSTYPE" == "linux-gnu"* ]];
     then
-      echo CMD: clang++ -std=c++17 -pedantic-errors -Wall -Weffc++ -Wextra -Wsign-conversion $1.cpp -o $1.out
-      clang++ -std=c++17 -pedantic-errors -Wall -Weffc++ -Wextra -Wsign-conversion $1.cpp -o $1.out
+      echo "use gcc or g++ or what is called here for linux, same params I think"
   elif [[ "$OSTYPE" == "darwin"* ]];
     then
-      echo "use gcc or g++ or what is called here for linux, same params I think"
+      echo CMD: clang++ -std=c++17 -pedantic-errors -Wall -Weffc++ -Wextra -Wsign-conversion $1.cpp -o $1.out
+      clang++ -std=c++17 -pedantic-errors -Wall -Weffc++ -Wextra -Wsign-conversion $1.cpp -o $1.out
   fi
     if [[ $2 = "e" ]];
     then
