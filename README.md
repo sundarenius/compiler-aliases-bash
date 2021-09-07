@@ -8,5 +8,5 @@ Run this command for linux/mac to copy ca file to usr/local/bin, that will make 
 Contains different functions with aliases for running compilers like c++, or java (more to come) with some predefined option flags.
 
 ## Maintainers
-This project was built and maintained by Håkan Sundström.
+This project was built and maintained by Håkan Sundström
 https://github.com/Sundarenius
